@@ -31,6 +31,17 @@ function Company() {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
+
+    // Lock page scroll when mobile menu is open
+    useEffect(() => {
+        if (!menuOpen) return;
+        const prev = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = prev || "";
+        };
+    }, [menuOpen]);
+
     return (
         <><div className='absolute inset-0 z-10 ' >
             <nav className='h-[12vh] bg-transparent grid grid-cols-12 items-center' >
@@ -39,15 +50,16 @@ function Company() {
                         <Link to={'/'} >  <img className='sm:h-[18vh] hidden mask-y-from-70% mask-y-to-90% mask-x-from-95% mask-x-to-99% sm:block h-[8vh]   ' src="./src/assets/c2dblogo.png" alt="" /></Link>
                     </div>
                 </div>
-                <div className='col-span-7 sm:block hidden ' >
-                    <div className='flex flex-row gap-[2.5vw] justify-end ' >
-                        <Link to={'/about'} className='text-white text-[13px] font-semibold ' >ABOUT</Link>
-                        <Link to={'/work'} className='text-white  text-[13px] font-semibold'>WORK</Link>
-                        <Link to={'/careers'} className='text-white  text-[13px] font-semibold'>CAREER</Link>
-                        <Link to={''} className='text-white hidden text-[13px] font-semibold '>JOURNAL</Link>
-                        <Link to={'/contact'} className='text-white  text-[13px] font-semibold '>CONTACT</Link>
+                <div className='col-span-7 sm:block hidden'>
+                    <div className='flex flex-row gap-[2.5vw] justify-end'>
+                        <Link to='/' className='text-white text-[13px] font-semibold'>HOME</Link>
+                        <Link to='/about' className='text-white text-[13px] font-semibold'>ABOUT</Link>
+                        <Link to='/work' className='text-white text-[13px] font-semibold'>WORK</Link>
+                        <Link to='/careers' className='text-white text-[13px] font-semibold'>CAREER</Link>
+                        <Link to='/contact' className='text-white text-[13px] font-semibold'>CONTACT</Link>
                     </div>
                 </div>
+
             </nav>
         </div>
             <header className={`fixed top-0 left-0 block sm:hidden w-full z-50 bg-transparent text-white transition-transform duration-300 ${showNavbar ? "translate-y-0" : "-translate-y-full"
@@ -90,57 +102,33 @@ function Company() {
 
                 {/* Mobile menu overlay */}
                 <div
-                    className={`fixed top-0 left-0 h-[80vh] w-full gap-[1vh] bg-grade text-white flex flex-col items-center justify-center space-y-6 text-lg tracking-wide transition-transform duration-300 ease-in-out lg:hidden ${menuOpen ? "translate-x-0" : "-translate-x-full"
-                        }`}
+                    role="menu"
+                    className={`fixed inset-0 z-50 w-screen h-screen overflow-y-auto bg-grade/95 backdrop-blur-sm text-white 
+              flex flex-col items-center justify-start pt-16 space-y-6 text-lg tracking-wide
+              transition-transform duration-300 ease-in-out lg:hidden
+              ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}
                 >
-                    <div className='sm:ml-[10vw] ml-[3vw] ' >
-                        <img className='sm:h-[10vh] h-[12vh]   ' src="./src/assets/c2dblogo.png" alt="" />
+                    <div className="sm:ml-[10vw] ml-[3vw]">
+                        <img className="sm:h-[10vh] h-[12vh]" src="./src/assets/c2dblogo.png" alt="Code2dbug" />
                     </div>
-
 
                     <button
                         className="absolute top-4 right-4 text-3xl focus:outline-none"
                         onClick={() => setMenuOpen(false)}
+                        aria-label="Close menu"
                     >
                         ×
                     </button>
-                    <a
-                        href="/"
-                        onClick={() => setMenuOpen(false)}
-                        className="hover:text-gray-400 uppercase"
-                    >
-                        Home
-                    </a>
 
-                    <a
-                        href="/about"
-                        onClick={() => setMenuOpen(false)}
-                        className="hover:text-gray-400 uppercase"
-                    >
-                        About
-                    </a>
-                    <a
-                        href="/work"
-                        onClick={() => setMenuOpen(false)}
-                        className="hover:text-gray-400 uppercase"
-                    >
-                        Work
-                    </a>
-                    <a
-                        href="/careers"
-                        onClick={() => setMenuOpen(false)}
-                        className="hover:text-gray-400 uppercase"
-                    >
-                        Careers
-                    </a>
-                    <a
-                        href="/contact"
-                        onClick={() => setMenuOpen(false)}
-                        className="hover:text-gray-400 uppercase"
-                    >
-                        Contact
-                    </a>
+                    <a role="menuitem" href="/" onClick={() => setMenuOpen(false)} className="hover:text-gray-400 uppercase">Home</a>
+                    <a role="menuitem" href="/about" onClick={() => setMenuOpen(false)} className="hover:text-gray-400 uppercase">About</a>
+                    <a role="menuitem" href="/work" onClick={() => setMenuOpen(false)} className="hover:text-gray-400 uppercase">Work</a>
+                    <a role="menuitem" href="/careers" onClick={() => setMenuOpen(false)} className="hover:text-gray-400 uppercase">Careers</a>
+                    <a role="menuitem" href="/contact" onClick={() => setMenuOpen(false)} className="hover:text-gray-400 uppercase">Contact</a>
+
+                    <div className="pb-10" />
                 </div>
+
             </header>
             <div className='sm:h-[90vh] relative h-[70vh]  bg-grade flex px-[10vw]  justify-center  sm:justify-center sm:items-center ' >
                 <img className='absolute  sm:h-[30vw] mt-[30vw] sm:mt-0  mask-x-from-70% mask-x-to-90% mask-y-from-70% mask-y-to-90%   ' src="./src/assets/fade2.png" alt="" />

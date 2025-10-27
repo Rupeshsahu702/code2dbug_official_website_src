@@ -101,56 +101,33 @@ function About() {
 
                 {/* Mobile menu overlay */}
                 <div
-                    className={`fixed top-0 left-0 h-[80vh] w-full gap-[1vh] bg-grade text-white flex flex-col items-center justify-center space-y-6 text-lg tracking-wide transition-transform duration-300 ease-in-out lg:hidden ${menuOpen ? "translate-x-0" : "-translate-x-full"
-                        }`}
+                    role="menu"
+                    className={`fixed inset-0 z-50 w-screen h-screen overflow-y-auto bg-grade/95 backdrop-blur-sm text-white 
+              flex flex-col items-center justify-start pt-16 space-y-6 text-lg tracking-wide
+              transition-transform duration-300 ease-in-out lg:hidden
+              ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}
                 >
-                    <div className='sm:ml-[10vw] ml-[3vw] ' >
-                        <img className='sm:h-[10vh] h-[8vh]   ' src="./src/assets/c2dblogo.png" alt="" />
+                    <div className="sm:ml-[10vw] ml-[3vw]">
+                        <img className="sm:h-[10vh] h-[12vh]" src="./src/assets/c2dblogo.png" alt="Code2dbug" />
                     </div>
 
                     <button
                         className="absolute top-4 right-4 text-3xl focus:outline-none"
                         onClick={() => setMenuOpen(false)}
+                        aria-label="Close menu"
                     >
                         ×
                     </button>
-                    <a
-                        href="/"
-                        onClick={() => setMenuOpen(false)}
-                        className="hover:text-gray-400 uppercase"
-                    >
-                        Home
-                    </a>
-                    <a
-                        href="/about"
-                        onClick={() => setMenuOpen(false)}
-                        className="hover:text-gray-400 uppercase"
-                    >
-                        About
-                    </a>
-                    <a
-                        href="/work"
-                        onClick={() => setMenuOpen(false)}
-                        className="hover:text-gray-400 uppercase"
-                    >
-                        Work
-                    </a>
-                    <a
-                        href="/careers"
-                        onClick={() => setMenuOpen(false)}
-                        className="hover:text-gray-400 uppercase"
-                    >
-                        Careers
-                    </a>
 
-                    <a
-                        href="/contact"
-                        onClick={() => setMenuOpen(false)}
-                        className="hover:text-gray-400 uppercase"
-                    >
-                        Contact
-                    </a>
+                    <a role="menuitem" href="/" onClick={() => setMenuOpen(false)} className="hover:text-gray-400 uppercase">Home</a>
+                    <a role="menuitem" href="/about" onClick={() => setMenuOpen(false)} className="hover:text-gray-400 uppercase">About</a>
+                    <a role="menuitem" href="/work" onClick={() => setMenuOpen(false)} className="hover:text-gray-400 uppercase">Work</a>
+                    <a role="menuitem" href="/careers" onClick={() => setMenuOpen(false)} className="hover:text-gray-400 uppercase">Careers</a>
+                    <a role="menuitem" href="/contact" onClick={() => setMenuOpen(false)} className="hover:text-gray-400 uppercase">Contact</a>
+
+                    <div className="pb-10" />
                 </div>
+
             </header>
 
             <div className='bg-grade' >
