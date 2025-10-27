@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom';
 import { MdAddIcCall } from "react-icons/md";
 import { FaSuitcase } from "react-icons/fa6";
 import { BsInstagram } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
+
 function Company() {
     const [open, setOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -188,7 +191,10 @@ function Company() {
                 </div>
             </div>
             <div className='h-[12vw] mx-[3vw]  my-[6vh] sm:my-0  flex justify-center items-center' >
-                <button className='sm:h-[3.5vw] h-[6vh] w-full  sm:w-[20vw] border-2 text-lg font-semibold border-black cursor-pointer transition-all ease-in duration-200 hover:bg-grade hover:text-white ' >EXPLORE OUR WORK </button>
+                <button
+                    onClick={() => navigate('/work')}
+                    type='button'
+                    className='sm:h-[3.5vw] h-[6vh] w-full  sm:w-[20vw] border-2 text-lg font-semibold border-black cursor-pointer transition-all ease-in duration-200 hover:bg-grade hover:text-white ' >EXPLORE OUR WORK </button>
             </div>
             <div className='flex mx-[3vw] sm:mx-[11vw] flex-col sm:items-center sm:gap-[0.5vw] ' >
                 <img className='mb-[2vw]' src="./src/assets/group.jpg" alt="" />
@@ -247,7 +253,7 @@ function Company() {
                         <a className='underline underline-offset-2 font-semibold text-white ' target='_blank' href="https://www.instagram.com/04braveheart?igsh=MWRyaTZrbDJsNXR6dw%3D%3D&utm_source=qr"> Pravin.R.Nair, Founder & CEO, code2dbug </a>
                     </div>
                     <div className='flex justify-center ' >
-                        <img className='sm:h-[21vw] h-[90vw] rounded-full  object-cover' src="./src/assets/founder.jpeg" alt="" />
+                        <img className='sm:h-[21vw] h-[90vw] rounded-full  object-cover' src="./src/assets/founder.png" alt="Pravin R. Nair" />
                     </div>
                 </div>
             </div>
@@ -286,7 +292,7 @@ function Company() {
             <div className='flex flex-col bg-grade sm:px-[13vw] py-[2.5vw] px-[4vw] sm:gap-[0.5vw]  gap-[4vw] ' >
                 <div className=' flex flex-col sm:flex-row sm:items-center gap-[4vw] ' >
                     <a href="/">
-                    <img className='sm:h-[7vw] mask-y-from-70% mask-y-to-90%  h-[7vh] w-[22vh] ' src="./src/assets/c2dblogo.png" alt="" />
+                        <img className='sm:h-[7vw] mask-y-from-70% mask-y-to-90%  h-[7vh] w-[22vh] ' src="./src/assets/c2dblogo.png" alt="" />
                     </a>
                     <span className=' text-2xl font-sans font-semibold text-white ' >Building Brands with Purpose</span>
                 </div>

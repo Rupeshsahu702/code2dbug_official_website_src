@@ -1,6 +1,8 @@
+// src/components/FilterGallery.jsx
 import React, { useEffect, useState, useRef } from "react";
 
 const FilterGallery = () => {
+  // Categories
   const categories = [
     "ALL",
     "DESIGN FOR GOOD",
@@ -12,8 +14,9 @@ const FilterGallery = () => {
     "WORK IN PROGRESS",
   ];
 
+  // Projects
   const projects = [
-    { id: 1, name: "HOCCO", category: "FOOD & BEVERAGE", image: "./src/assets/hocco.png", url: "https://www.hocco.in/" }, // trimmed
+    { id: 1, name: "HOCCO", category: "FOOD & BEVERAGE", image: "./src/assets/hocco.png", url: "https://www.hocco.in/" },
     { id: 2, name: "HK VITALS", category: "HEALTH & WELLNESS", image: "./src/assets/hkv.png", url: "https://www.hkvitals.com/" },
     { id: 3, name: "FEIER", category: "FASHION & BEAUTY", image: "./src/assets/feier.png", url: "https://shopfeier.com/" },
     { id: 4, name: "SENSING", category: "FASHION & BEAUTY", image: "./src/assets/sens.png", url: "https://www.sensingyourskin.com/" },
@@ -38,11 +41,8 @@ const FilterGallery = () => {
   ];
 
   const [activeCategory, setActiveCategory] = useState("ALL");
-
   const filteredProjects =
-    activeCategory === "ALL"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+    activeCategory === "ALL" ? projects : projects.filter((p) => p.category === activeCategory);
 
   // Modal state
   const [isOpen, setIsOpen] = useState(false);
@@ -56,118 +56,168 @@ const FilterGallery = () => {
     setSelected(project);
     setIsOpen(true);
   }
-
-  // NEW: navigate helper with trim so stray spaces don't break links
   function navigateTo(url) {
     const safe = (url || "").trim();
     if (!safe) return;
     window.location.href = safe;
   }
-
-  // NEW: only show disclaimer for non-WIP; WIP goes straight to link
   function handleProjectClick(project) {
-    if (project.category === "WORK IN PROGRESS") {
-      navigateTo(project.url);
-    } else {
-      openModal(project);
-    }
+    if (project.category === "WORK IN PROGRESS") navigateTo(project.url);
+    else openModal(project);
   }
-
   function closeModal() {
     setIsOpen(false);
     setSelected(null);
   }
-
   function agreeAndContinue() {
-    if (selected && selected.url) {
-      navigateTo(selected.url);
-      return;
-    }
-    closeModal();
+    if (selected?.url) navigateTo(selected.url);
+    else closeModal();
   }
 
-  // Escape to close, lock scroll, focus management
+  // Modal a11y: escape + scroll lock + focus
   useEffect(() => {
     if (!isOpen) return;
-
-    const onKey = (e) => {
-      if (e.key === "Escape") closeModal();
-    };
+    const onKey = (e) => e.key === "Escape" && closeModal();
     document.addEventListener("keydown", onKey);
-    const prevOverflow = document.body.style.overflow;
+    const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    setTimeout(() => closeBtnRef.current && closeBtnRef.current.focus(), 0);
-
+    setTimeout(() => closeBtnRef.current?.focus(), 0);
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prevOverflow || "";
+      document.body.style.overflow = prev || "";
     };
   }, [isOpen]);
 
+  // Tabs slider
+  const tabsRef = useRef(null);
+  const activeBtnRef = useRef(null);
+  const [canLeft, setCanLeft] = useState(false);
+  const [canRight, setCanRight] = useState(false);
+
+  const updateArrows = () => {
+    const el = tabsRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    setCanLeft(el.scrollLeft > 0);
+    setCanRight(el.scrollLeft < max - 1);
+  };
+  const scrollTabs = (dir) => {
+    const el = tabsRef.current;
+    if (!el) return;
+    const amount = Math.max(160, Math.floor(el.clientWidth * 0.6));
+    el.scrollBy({ left: dir * amount, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    activeBtnRef.current?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }, [activeCategory]);
+  useEffect(() => {
+    updateArrows();
+    const el = tabsRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", updateArrows, { passive: true });
+    window.addEventListener("resize", updateArrows);
+    return () => {
+      el.removeEventListener("scroll", updateArrows);
+      window.removeEventListener("resize", updateArrows);
+    };
+  }, []);
+
   return (
-    <div className="w-full inset-0 bg-grade  z-10 relative px-[5vw] sm:px-[10vw] py-[30vw] mt-[5vw]  sm:py-[5vw]">
-      {/* Filter Tabs */}
-      <div className="hidden  sm:block">
-        <div className="flex flex-wrap  gap-6 justify-center  pb-4 mb-8">
-          {categories.map((cat) => (
+    <>
+      <div className="w-full bg-grade relative px-[5vw] sm:px-[10vw] py-[30vw] mt-[5vw] sm:py-[5vw]">
+        {/* Tabs row */}
+        <div className="relative mb-8">
+          <div className="relative h-12 flex items-center">
+            {/* Left arrow */}
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`text-sm text-white font-semibold tracking-wide ${
-                activeCategory === cat
-                  ? "text-black border-b-2 border-black"
-                  : "text-gray-500 hover:text-black"
-              }`}
+              type="button"
+              aria-label="Scroll categories left"
+              onClick={() => scrollTabs(-1)}
+              disabled={!canLeft}
+              className={`hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2
+                          h-10 w-10 items-center justify-center rounded-full
+                          bg-white/[0.06] text-white/70 ring-1 ring-white/10 shadow
+                          transition-colors
+                          ${canLeft ? "hover:bg-white/[0.12] hover:text-white" : "opacity-40 pointer-events-none"}`}
             >
-              {cat}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+              </svg>
             </button>
+
+            {/* Tabs container */}
+            <div
+              ref={tabsRef}
+              className="flex-1 mx-12 flex gap-6 overflow-x-auto scroll-smooth items-center
+                         [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {categories.map((cat) => {
+                const isActive = activeCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    ref={isActive ? activeBtnRef : null}
+                    onClick={() => setActiveCategory(cat)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`whitespace-nowrap text-sm font-semibold tracking-wide pb-1
+                      ${isActive ? "text-white border-b-2 border-white"
+                                 : "text-white/80 hover:text-white"}`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right arrow */}
+            <button
+              type="button"
+              aria-label="Scroll categories right"
+              onClick={() => scrollTabs(1)}
+              disabled={!canRight}
+              className={`hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2
+                          h-10 w-10 items-center justify-center rounded-full
+                          bg-white/[0.06] text-white/70 ring-1 ring-white/10 shadow
+                          transition-colors
+                          ${canRight ? "hover:bg-white/[0.12] hover:text-white" : "opacity-40 pointer-events-none"}`}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="m8.59 16.59 1.41 1.41 6-6-6-6-1.41 1.41L13.17 12z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Project Grid */}
+        <div className="grid sm:grid-cols-2 bg-grade lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project) => (
+            <div
+              key={project.id}
+              className="cursor-pointer group"
+              onClick={() => handleProjectClick(project)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") handleProjectClick(project);
+              }}
+            >
+              <img
+                src={project.image}
+                alt={project.name}
+                className="rounded-lg w-full h-56 object-cover group-hover:opacity-90 transition"
+              />
+              <h3 className="text-lg text-white font-semibold mt-3">{project.name}</h3>
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Project Grid */}
-      <div className="grid sm:grid-cols-2  bg-grade lg:grid-cols-3 gap-8">
-        {filteredProjects.map((project) => (
-          <div
-            key={project.id}
-            className="cursor-pointer group"
-            onClick={() => handleProjectClick(project)}  
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") handleProjectClick(project);  {/* changed */}
-            }}
-          >
-            <img
-              src={project.image}
-              alt={project.name}
-              className="rounded-lg w-full h-56 object-cover group-hover:opacity-90 transition"
-            />
-            <h3 className="text-lg text-white  font-semibold mt-3">
-              {project.name}
-            </h3>
-          </div>
-        ))}
-      </div>
-
       {/* Disclaimer Modal */}
       {isOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="disclaimer-title"
-          className="fixed inset-0 z-50 flex items-center justify-center"
-        >
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-grade/70"
-            onClick={closeModal}
-            aria-hidden="true"
-          />
-
-          {/* Modal panel */}
+        <div role="dialog" aria-modal="true" aria-labelledby="disclaimer-title" className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-grade/70" onClick={closeModal} aria-hidden="true" />
           <div className="relative z-10 w-full max-w-lg mx-4 rounded-2xl bg-neutral-900 text-white shadow-2xl border border-white/10">
-            {/* Close button */}
             <button
               ref={closeBtnRef}
               onClick={closeModal}
@@ -175,12 +225,7 @@ const FilterGallery = () => {
               className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <span className="sr-only">Close</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-5 w-5"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
                 <path
                   fillRule="evenodd"
                   d="M6.225 4.811a1 1 0 0 1 1.414 0L12 9.172l4.361-4.361a1 1 0 1 1 1.414 1.414L13.414 10.586l4.361 4.361a1 1 0 1 1-1.414 1.414L12 12l-4.361 4.361a1 1 0 1 1-1.414-1.414l4.361-4.361-4.361-4.361a1 1 0 0 1 0-1.414Z"
@@ -189,23 +234,14 @@ const FilterGallery = () => {
               </svg>
             </button>
 
-            {/* Content */}
             <div className="p-6 sm:p-8">
-              <h2 id="disclaimer-title" className="text-xl font-semibold">
-                Heads up
-              </h2>
-              <p className="mt-2 text-sm text-neutral-200 leading-relaxed">
-                {disclaimer}
-              </p>
-
-              {selected?.name ? (
+              <h2 id="disclaimer-title" className="text-xl font-semibold">Heads up</h2>
+              <p className="mt-2 text-sm text-neutral-200 leading-relaxed">{disclaimer}</p>
+              {selected?.name && (
                 <p className="mt-4 text-xs text-neutral-400">
-                  You were trying to open:{" "}
-                  <span className="font-medium">{selected.name}</span>
+                  You were trying to open: <span className="font-medium">{selected.name}</span>
                 </p>
-              ) : null}
-
-              {/* Actions */}
+              )}
               <div className="mt-6 flex items-center gap-3">
                 <button
                   onClick={agreeAndContinue}
@@ -224,7 +260,7 @@ const FilterGallery = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

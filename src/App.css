@@ -9,3 +9,12 @@
   --color-bermuda: #78dcca;
   --color-grade: #0A0B13;
 }
+
+/* Global typography: Montserrat everywhere */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}

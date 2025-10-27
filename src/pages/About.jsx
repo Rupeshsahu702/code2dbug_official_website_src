@@ -1,3 +1,4 @@
+// src/pages/About.jsx
 import React, { useEffect, useId, useState } from 'react'
 import { BsInstagram } from 'react-icons/bs';
 import { FaPlus, FaSuitcase } from "react-icons/fa6";
@@ -5,7 +6,7 @@ import { FaMinus } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { MdAddIcCall } from 'react-icons/md';
 
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function About() {
 
@@ -71,7 +72,6 @@ function About() {
                         <img className='sm:h-[10vh] h-[8vh]   ' src="./src/assets/c2dblogo.png" alt="" />
                     </div>
 
-
                     {/* Hamburger icon (visible on mobile) */}
                     <button
                         className="lg:hidden  bg-grade opacity-80 h-[7vh] w-[7vh]  rounded-full focus:outline-none"
@@ -89,7 +89,6 @@ function About() {
                         )}
                     </button>
 
-
                     {/* Desktop nav */}
                     <nav className="hidden lg:flex space-x-8 text-sm uppercase">
                         <a href="#about" className="hover:text-gray-300">About</a>
@@ -100,7 +99,6 @@ function About() {
                     </nav>
                 </div>
 
-
                 {/* Mobile menu overlay */}
                 <div
                     className={`fixed top-0 left-0 h-[80vh] w-full gap-[1vh] bg-grade text-white flex flex-col items-center justify-center space-y-6 text-lg tracking-wide transition-transform duration-300 ease-in-out lg:hidden ${menuOpen ? "translate-x-0" : "-translate-x-full"
@@ -109,7 +107,6 @@ function About() {
                     <div className='sm:ml-[10vw] ml-[3vw] ' >
                         <img className='sm:h-[10vh] h-[8vh]   ' src="./src/assets/c2dblogo.png" alt="" />
                     </div>
-
 
                     <button
                         className="absolute top-4 right-4 text-3xl focus:outline-none"
@@ -155,10 +152,11 @@ function About() {
                     </a>
                 </div>
             </header>
+
             <div className='bg-grade' >
                 <img src="./src/assets/group.jpg" alt="" />
-
             </div>
+
             <div className=' bg-grade px-[8vw] sm:px-[20vw]'  >
                 <div className=' gap-[7vw]  sm:gap-[2vw] pt-[4vw] flex flex-col ' >
                     <span className=' text-xl sm:text-2xl font-bold text-white sm:font-semibold font-sans ' >Code2DBug is a Creative Tech & Innovation Studio that partners with startups, founders, and future-first brands to bring ideas to life through code, design, and strategic thinking. We don’t just build tech, we craft digital experiences that are purposeful, scalable, and ready for the real world.</span>
@@ -168,6 +166,7 @@ function About() {
                     <button className='h-[8vh] text-xl sm:text-lg  font-semibold bg-grade text-white hover:bg-grade hover:text-white ease-in transition-all cursor-pointer duration-200 w-full sm:w-[16vw] border-black border-[2px] ' > <a href="https://www.instagram.com/04braveheart?igsh=MWRyaTZrbDJsNXR6dw%3D%3D&utm_source=qr"> ABOUT PRAVIN </a> </button>
                 </div>
             </div>
+
             <div className='px-[12vw]  bg-grade ' >
                 <h1 className='text-5xl font-semibold font-sans pt-[8vh] text-white ' >Our Services</h1>
                 <div className='grid sm:grid-cols-2 gap-[8vw] ' >
@@ -193,18 +192,19 @@ function About() {
                                 className={`transition-all duration-200 overflow-hidden ${open ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <p className="text-gray-600 text-white leading-relaxed">
-                                    <ul class="list-disc pl-6  ">
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Full-Stack Development</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg '  >App Development (Android / Flutter)</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Backend Architecture</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >AI/Automation Integrations</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >DevOps & Deployment</li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                             <hr className="border-t-2  border-white my-10" />
                         </div>
+
                         <div className=" border-white pb-4">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
@@ -226,18 +226,19 @@ function About() {
                                 className={`transition-all duration-200 overflow-hidden ${open1 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <p className="text-gray-600 text-white leading-relaxed">
-                                    <ul class="list-disc pl-6  ">
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >UI/UX for Web & Mobile</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg '  >Prototyping & Design Systems</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Branding & Visual Identity</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Design Audits</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >No-Code MVPs</li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
+
                         <div className=" border-gray-300 pb-4">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
@@ -259,18 +260,19 @@ function About() {
                                 className={`transition-all duration-200 overflow-hidden ${open2 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <p className="text-gray-600 text-white leading-relaxed">
-                                    <ul class="list-disc pl-6  ">
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Product Strategy</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg '  >Startup Tech Consulting</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >MVP & GTM Sprints</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Delivery Oversight</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Staff Augmentation</li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
+
                         <div className=" border-gray-300 pb-4">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
@@ -292,18 +294,19 @@ function About() {
                                 className={`transition-all duration-200 overflow-hidden ${open3 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <p className="text-gray-600 text-white leading-relaxed">
-                                    <ul class="list-disc pl-6  ">
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Internship Programs</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg '  >Capstone Supervision</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Career Accelerators</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Job-Readiness Coaching</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Portfolio & Resume Clinics</li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
+
                         <div className=" border-gray-300 pb-4">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
@@ -325,18 +328,19 @@ function About() {
                                 className={`transition-all duration-200 overflow-hidden ${open4 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <p className="text-gray-600 text-white leading-relaxed">
-                                    <ul class="list-disc pl-6  ">
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Deploy models using Flask, FastAPI, Docker, or AWS Lambda</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg '  >Set up CI/CD pipelines for machine learning (MLOps)</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Track experiments with DVC and MLflow</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Ensure scalable, secure API-based AI delivery</li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
                     </div>
+
                     <div className='  sm:mt-[10vh]  ' >
                         <div className=" border-gray-300 pb-4">
                             <div
@@ -359,17 +363,18 @@ function About() {
                                 className={`transition-all duration-200 overflow-hidden ${open5 ? "max-h-60 mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <p className="text-gray-600 text-white leading-relaxed">
-                                    <ul class="list-disc pl-6  ">
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Build AI chatbots for websites, apps, and WhatsApp</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg '  >Analyze sentiment from reviews, surveys, or social posts</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Implement text summarization, document search, and Q&A systems</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >NER (Named Entity Recognition) and multilingual understanding</li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                             <hr className="border-t-2  border-white my-10" />
                         </div>
+
                         <div className=" border-gray-300 pb-4">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
@@ -391,17 +396,18 @@ function About() {
                                 className={`transition-all duration-200 overflow-hidden ${open6 ? "max-h-40 mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <p className="text-gray-600 text-white leading-relaxed">
-                                    <ul class="list-disc pl-6  ">
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Product recommendation engines</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg '  >Inventory forecasting and stock optimization</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Review and feedback analytics</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Lead scoring and purchase prediction models</li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
+
                         <div className=" border-gray-300 pb-4">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
@@ -423,17 +429,18 @@ function About() {
                                 className={`transition-all duration-200 overflow-hidden ${open7 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <p className="text-gray-600 text-white leading-relaxed">
-                                    <ul class="list-disc pl-6  ">
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Time-series forecasting for trends, revenue, or demand</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg '  >Classification and regression models (e.g., spam detection, credit risk)</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Anomaly detection for fraud or operational issues</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Customer segmentation and clustering</li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
+
                         <div className=" border-gray-300 pb-4">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
@@ -443,7 +450,8 @@ function About() {
                                     Data Preparation & Annotation
                                 </h3>
 
-                                {open7 ? (
+                                {/* This looks like a bug in the original: it toggled based on open7 */}
+                                {open8 ? (
                                     <FaMinus className="w-5 h-5 text-white transition-transform duration-200" />
                                 ) : (
                                     <FaPlus className="w-5 h-5 text-white transition-transform duration-200" />
@@ -455,20 +463,21 @@ function About() {
                                 className={`transition-all duration-200 overflow-hidden ${open8 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <p className="text-gray-600 text-white leading-relaxed">
-                                    <ul class="list-disc pl-6  ">
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >End-to-end dataset design, cleansing, and labeling</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg '  >Annotation tools for text, image, and custom use cases</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Ideal for clients preparing training data for supervised learning</li>
                                         <li className='ml-[2vw] mb-[1vw] text-lg ' >Maintain data quality with audit trails and versioning</li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
                     </div>
                 </div>
             </div>
+
             <div className=' px-[3vw] sm:px-[12vw] bg-grade border-white border '>
                 <div className='bg-stone-100 py-[7vw] sm:py-[2vw] px-[4vw] sm:px-[9vw] flex flex-col sm:flex-row gap-[4vw] ' >
                     <span className='sm:text-5xl text-3xl font-semibold text-white ' >Engagement Models</span>
@@ -502,37 +511,37 @@ function About() {
                     <div className='flex flex-col gap-[10vw] sm:gap-[2vw]' >
                         <h2 className='underline text-lg uppercase text-white  ' >1. Fixed-Price Projects</h2>
                         <p className='text-white text-lg' >Best for: Startups and brands with clear deliverables, defined timelines, and a tight go-to-market.</p>
-                        <ul class="list-disc pl-6  ">
+                        <ul className="list-disc pl-6">
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'> Scope and milestones are locked upfront</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'>Ideal for MVPs, website builds, one-time tech or design sprints</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'>Issuance of an HR-verifiable experience letter on completion</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'>Clear acceptance criteria and delivery checklist</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'>Optional add-ons for post-launch maintenance or feature phases</li>
-
                         </ul>
+
                         <h2 className='underline text-lg uppercase text-white  ' > 2. Retainer-Based Engagements</h2>
                         <p className='text-white text-lg' >Best for: Teams that need consistent support across design, development, or product ops.</p>
-                        <ul class="list-disc pl-6  ">
+                        <ul className="list-disc pl-6">
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'> Ongoing collaboration across sprints</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'> Fixed monthly hours or deliverables</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'>Combines strategy, build, and optimization</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'>Clear acceptance criteria and delivery checklist</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'>Scalable as your needs grow — from launch to scale</li>
-
                         </ul>
+
                         <h2 className='underline text-lg uppercase text-white  ' >3. Monthly Internship Cohorts</h2>
                         <p className='text-white text-lg' >Best for: Institutions, startup partners, or internal teams seeking delivery + talent training.</p>
-                        <ul class="list-disc pl-6  ">
+                        <ul className="list-disc pl-6">
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'> Curated, mentor-guided internship programs</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'>Real briefs, tracked tasks, reviews, and verifiable outcomes</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'>Blend of learning + delivery — ideal for CSR, internal upskilling, or campus hiring pipelines</li>
                             <li className='ml-[2vw] mb-[1vw] text-white text-lg'>Outcome reports, experience letters, and job-readiness assets included</li>
-
                         </ul>
                     </div>
 
                 </div>
             </div>
+
             <div className=' px-[8vw] sm:px-[12vw] pt-[5vw] pb-[1vw] bg-grade ' >
                 <div className='grid sm:gap-x-[2vw] gap-[5vw]   mb-[6vw]  sm:grid-cols-4' >
                     <div className='col-span-1' >
@@ -600,6 +609,7 @@ function About() {
                     </div>
                 </div>
             </div>
+
             <div className='flex flex-col bg-grade sm:px-[13vw] py-[2.5vw] px-[4vw] sm:gap-[0.5vw]  gap-[4vw] ' >
                 <div className=' flex flex-col sm:flex-row sm:items-center gap-[4vw] ' >
                     <a href="/">

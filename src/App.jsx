@@ -1,6 +1,5 @@
+// src/App.jsx
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 
@@ -14,13 +13,14 @@ import SkillCertification from './pages/SkillCertification'
 import ProfessionalTrack from './pages/ProfessionalTrack'
 import CareerLaunch from './pages/CareerLaunch'
 import CareerProgram from './pages/CareerProgram'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    {/* <Navbar/> */}
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Company />} />
         <Route path='/about' element={<About />} />
@@ -33,7 +33,6 @@ function App() {
         <Route path='/360career' element={<CareerProgram />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
-      {/* <Footer/> */}
     </>
   )
 }
