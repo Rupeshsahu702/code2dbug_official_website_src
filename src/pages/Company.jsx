@@ -130,20 +130,23 @@ function Company() {
                 </div>
 
             </header>
-            <div className='sm:h-[90vh] relative h-[70vh]  bg-grade flex px-[10vw]  justify-center  sm:justify-center sm:items-center ' >
+            <div className='sm:h-[90vh] relative h-[75vh]  bg-grade flex px-[10vw]  justify-center  sm:justify-center sm:items-center ' >
                 <img className='absolute  sm:h-[30vw] mt-[30vw] sm:mt-0  mask-x-from-70% mask-x-to-90% mask-y-from-70% mask-y-to-90%   ' src="./src/assets/fade2.png" alt="" />
                 <div className=' flex flex-col items-center text-center relative  ' >
                     <h1 className='text-white sm:text-[3vw] text-[27px] mt-[13vh]  font-bold font-sans' >We’re Debugging the Future, <br /> One Code at a Time.</h1>
                     <p className='text-white text-[18px] sm:mt-[10vw] mt-[10vh] '> <span className='font-semibold ' >Code2Dbug is a Creative Tech & Innovation Studio.</span>
-                        <br /> We collaborate with startups, brands, and innovators to transform ideas into — <br />
+                        <br /> We collaborate with startups, brands, and innovators to transform ideas into<br />
                         intelligent blending  <span className='font-semibold' >technology, design, and strategy</span>  to create solutions that inspire and perform.
 
                     </p>
-                    <HiArrowDown className='text-white mt-[4vh] sm:mt-[4vw] text-4xl font-extralight' />
+
+                    <a href="#next-section">
+                        <HiArrowDown className='text-white mt-[4vh] sm:mt-[4vw] text-4xl sm:text-4xl font-extralight' />
+                    </a>
                 </div>
 
             </div>
-            <div className=' flex sm:h-[10vw] h-full py-[3vh] sm:my-0 bg-grade  items-center justify-center ' >
+            <div className=' flex sm:h-[10vw]  py-[3vh] sm:my-0 bg-grade  items-center justify-center ' >
                 <h2 className='text-5xl font-sans font-semibold text-white ' >Our Work</h2>
             </div>
             <div className='bg-grade sm:pb-0 pb-5' >
@@ -152,7 +155,7 @@ function Company() {
                         <img className='sm:h-[25vw] h-[30vh] rounded-lg sm:rounded-xl object-cover' src="./src/assets/HKV.png" alt="" />
                         <h3 className='text-3xl font-semibold text-white ' >HK Vitals</h3>
                         <h4 className='font-semibold font-sans text-white ' >STRATEGY, BRANDING, PACKAGING, CREATIVE DIRECTION</h4>
-                        <p className='text-slate-700 text-white ' >HK Vitals by HealthKart has transformed India’s health supplement landscape. We redefined their brand and created a unified identity—anchored in health, knowledge, and research-driven innovation. Take a look at the comprehensive rebrand we worked on as their long-term brand partners.</p>
+                        <p className='text-slate-700 text-white ' >HK Vitals by HealthKart has transformed India’s health supplement landscape. We redefined their brand and created a unified identity,anchored in health, knowledge, and research-driven innovation. Take a look at the comprehensive rebrand we worked on as their long-term brand partners.</p>
                         <span className='underline underline-offset-2 font-semibold text-white '  > <a href="/work">HK Vitals.</a></span>
                     </div>
                     <div className='flex flex-col gap-[2vw] sm:gap-[0.5vw]' >
@@ -178,12 +181,14 @@ function Company() {
                     </div>
                 </div>
             </div>
-            <div className='h-[12vw] mx-[3vw]  my-[6vh] sm:my-0  flex justify-center items-center' >
-                <button
-                    onClick={() => navigate('/work')}
-                    type='button'
-                    className='sm:h-[3.5vw] h-[6vh] w-full  sm:w-[20vw] border-2 text-lg font-semibold border-black cursor-pointer transition-all ease-in duration-200 hover:bg-grade hover:text-white ' >EXPLORE OUR WORK </button>
-            </div>
+            <section id='next-section' >
+                <div className='h-[12vw] mx-[3vw]  my-[6vh] sm:my-0  flex justify-center items-center' >
+                    <button
+                        onClick={() => navigate('/work')}
+                        type='button'
+                        className='sm:h-[3.5vw] h-[6vh] w-full  sm:w-[20vw] border-2 text-lg font-semibold border-black cursor-pointer transition-all ease-in duration-200 hover:bg-grade hover:text-white ' >EXPLORE OUR WORK </button>
+                </div>
+            </section>
             <div className='flex mx-[3vw] sm:mx-[11vw] flex-col sm:items-center sm:gap-[0.5vw] ' >
                 <img className='mb-[2vw]' src="./src/assets/group.jpg" alt="" />
                 <span className='sm:text-2xl text-lg font-bold' >This is us and we'd like to be honest.</span>

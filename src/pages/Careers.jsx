@@ -113,26 +113,26 @@ function Careers() {
                         <p className="text-white">
                             At Code2DBug, we work with startups, founders, and future-focused teams to build digital
                             products that matter. From idea to execution, we blend code, design, and strategy to solve
-                            real problems — and we’re just getting started.
+                            real problems, and we’re just getting started.
                         </p>
                         <p className="text-white">
                             We’re a Creative Tech & Innovation Studio based in Bhilai, building the next generation of
                             creators, coders, and changemakers. If you’re driven, curious, and serious about meaningful
-                            work — we’re hiring across tech, design, and marketing.
+                            work, we’re hiring across tech, design, and marketing.
                         </p>
                         <p className="text-white font-semibold">Explore open roles or apply to our in-house career programs.</p>
                     </div>
 
                     {/* give the video container its own local stacking context on all screens */}
-                    <div className="sm:w-[30vw] mt-8 relative w-[80vw] sm:max-w-2xl aspect-video z-10">
+                    <div className="sm:w-[30vw]  flex sm:justify-center sm:items-center flex-col mt-8 relative w-[90vw] sm:max-w-2xl aspect-video z-10">
                         <iframe
-                            className="w-full h-full rounded-lg shadow-lg"
+                            className="w-full h-full rounded-lg shadow-lg   "
                             src="https://www.youtube.com/embed/8tZFSSJNDZY?si=sbc4JX56iyTywtxO"
                             title="YouTube video player"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                         ></iframe>
-                        <h2 className="text-lg font-semibold my-[8vw] text-white uppercase sm:my-[1vw]">WELCOME TO CODE2DBUG</h2>
+                        <h2 className="text-lg font-semibold my-[8vw] text-white uppercase sm:my-[1vw]"></h2>
                     </div>
                 </div>
             </div>

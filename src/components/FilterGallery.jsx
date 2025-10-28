@@ -50,7 +50,7 @@ const FilterGallery = () => {
   const closeBtnRef = useRef(null);
 
   const disclaimer =
-    "We’re new and hungry — the examples below are style demos, not client work (yet!).";
+    "We’re new and hungry, the examples below are style demos, not client work (yet!).";
 
   function openModal(project) {
     setSelected(project);

@@ -140,13 +140,13 @@ function About() {
                     <img src="./src/assets/anuska.jpg" alt="" />
                     <span className='text-xl font-sans text-white ' >"I’m driven by the belief that real impact is created when good ideas meet great execution. India has no shortage of talent or ambition, what’s often missing is the structure to turn that into delivery.</span>
                     <span className='text-xl font-sans text-white ' >I started Code2DBug to bridge that gap, helping both companies and creators ship work they can be proud of. Whether it’s a line of code or a full product build, everything we do is built for trust, scale, and impact."</span>
-                    <button className='h-[8vh] text-xl sm:text-lg  font-semibold bg-grade text-white hover:bg-grade hover:text-white ease-in transition-all cursor-pointer duration-200 w-full sm:w-[16vw] border-black border-[2px] ' > <a href="https://www.instagram.com/04braveheart?igsh=MWRyaTZrbDJsNXR6dw%3D%3D&utm_source=qr"> ABOUT PRAVIN </a> </button>
+                    <button className='h-[6vh] text-xl sm:text-lg  font-semibold bg-grade text-white hover:bg-grade hover:text-white ease-in transition-all cursor-pointer duration-200 w-full sm:w-[16vw] border-black border-[2px] ' > <a href="https://www.instagram.com/04braveheart?igsh=MWRyaTZrbDJsNXR6dw%3D%3D&utm_source=qr"> ABOUT PRAVIN </a> </button>
                 </div>
             </div>
 
             <div className='px-[12vw]  bg-grade ' >
-                <h1 className='text-5xl font-semibold font-sans pt-[8vh] text-white ' >Our Services</h1>
-                <div className='grid sm:grid-cols-2 gap-[8vw] ' >
+                <h1 className='text-5xl font-semibold font-sans sm:pt-[8vh] pt-[4vh]  text-white ' >Our Services</h1>
+                <div className='grid sm:grid-cols-2 sm:gap-[8vw] ' >
                     <div className=' mt-[10vh]  ' >
                         <div className=" border-gray-300 pb-4">
                             <div
@@ -166,7 +166,7 @@ function About() {
 
                             {/* Hidden Content */}
                             <div
-                                className={`transition-all duration-200 overflow-hidden ${open ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
+                                className={`transition-all duration-200 overflow-hidden ${open ? "max-h-full mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
                                 <div className="text-gray-600 text-white leading-relaxed">
@@ -200,7 +200,7 @@ function About() {
 
                             {/* Hidden Content */}
                             <div
-                                className={`transition-all duration-200 overflow-hidden ${open1 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
+                                className={`transition-all duration-200 overflow-hidden ${open1 ? "max-h-full mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
                                 <div className="text-gray-600 text-white leading-relaxed">
@@ -234,7 +234,7 @@ function About() {
 
                             {/* Hidden Content */}
                             <div
-                                className={`transition-all duration-200 overflow-hidden ${open2 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
+                                className={`transition-all duration-200 overflow-hidden ${open2 ? "max-h-full mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
                                 <div className="text-gray-600 text-white leading-relaxed">
@@ -268,7 +268,7 @@ function About() {
 
                             {/* Hidden Content */}
                             <div
-                                className={`transition-all duration-200 overflow-hidden ${open3 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
+                                className={`transition-all duration-200 overflow-hidden ${open3 ? "max-h-full mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
                                 <div className="text-gray-600 text-white leading-relaxed">
@@ -283,85 +283,17 @@ function About() {
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
-
                         <div className=" border-gray-300 pb-4">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
-                                onClick={() => setOpen4(!open4)}
-                            >
-                                <h3 className="text-lg transition-all ease-in duration-200 font-semibold uppercase tracking-wider text-white">
-                                    AI Model Deployment & MLOps
-                                </h3>
-
-                                {open4 ? (
-                                    <FaMinus className="w-5 h-5 text-white transition-transform duration-200" />
-                                ) : (
-                                    <FaPlus className="w-5 h-5 text-white transition-transform duration-200" />
-                                )}
-                            </div>
-
-                            {/* Hidden Content */}
-                            <div
-                                className={`transition-all duration-200 overflow-hidden ${open4 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
-                                    }`}
-                            >
-                                <div className="text-gray-600 text-white leading-relaxed">
-                                    <ul className="list-disc pl-6">
-                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Deploy models using Flask, FastAPI, Docker, or AWS Lambda</li>
-                                        <li className='ml-[2vw] mb-[1vw] text-lg '  >Set up CI/CD pipelines for machine learning (MLOps)</li>
-                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Track experiments with DVC and MLflow</li>
-                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Ensure scalable, secure API-based AI delivery</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <hr className="border-t-2 border-white my-10" />
-                        </div>
-                    </div>
-
-                    <div className='  sm:mt-[10vh]  ' >
-                        <div className=" border-gray-300 pb-4">
-                            <div
-                                className="flex items-center justify-between cursor-pointer"
-                                onClick={() => setOpen5(!open5)}
-                            >
-                                <h3 className="text-lg transition-all ease-in duration-200 uppercase font-semibold tracking-wider text-white">
-                                    Natural Language Processing
-                                </h3>
-
-                                {open5 ? (
-                                    <FaMinus className="w-5 h-5 text-white transition-transform duration-200" />
-                                ) : (
-                                    <FaPlus className="w-5 h-5 text-white transition-transform duration-200" />
-                                )}
-                            </div>
-
-                            {/* Hidden Content */}
-                            <div
-                                className={`transition-all duration-200 overflow-hidden ${open5 ? "max-h-60 mt-4 opacity-100" : "max-h-0 opacity-0"
-                                    }`}
-                            >
-                                <div className="text-gray-600 text-white leading-relaxed">
-                                    <ul className="list-disc pl-6">
-                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Build AI chatbots for websites, apps, and WhatsApp</li>
-                                        <li className='ml-[2vw] mb-[1vw] text-lg '  >Analyze sentiment from reviews, surveys, or social posts</li>
-                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Implement text summarization, document search, and Q&A systems</li>
-                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >NER (Named Entity Recognition) and multilingual understanding</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <hr className="border-t-2  border-white my-10" />
-                        </div>
-
-                        <div className=" border-gray-300 pb-4">
-                            <div
-                                className="flex items-center justify-between cursor-pointer"
-                                onClick={() => setOpen6(!open6)}
+                                onClick={() => setOpen8(!open8)}
                             >
                                 <h3 className="text-lg transition-all uppercase ease-in duration-200 font-semibold tracking-wider text-white">
-                                    Custom AI Solutions for E-Commerce
+                                    Video Production
                                 </h3>
 
-                                {open6 ? (
+                                {/* This looks like a bug in the original: it toggled based on open7 */}
+                                {open8 ? (
                                     <FaMinus className="w-5 h-5 text-white transition-transform duration-200" />
                                 ) : (
                                     <FaPlus className="w-5 h-5 text-white transition-transform duration-200" />
@@ -370,21 +302,24 @@ function About() {
 
                             {/* Hidden Content */}
                             <div
-                                className={`transition-all duration-200 overflow-hidden ${open6 ? "max-h-40 mt-4 opacity-100" : "max-h-0 opacity-0"
+                                className={`transition-all duration-200 overflow-hidden ${open8 ? "max-h-full mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
                                 <div className="text-gray-600 text-white leading-relaxed">
                                     <ul className="list-disc pl-6">
-                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Product recommendation engines</li>
-                                        <li className='ml-[2vw] mb-[1vw] text-lg '  >Inventory forecasting and stock optimization</li>
-                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Review and feedback analytics</li>
-                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Lead scoring and purchase prediction models</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Professional editing with smooth transitions and visual storytelling</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg '  >Color correction and enhancement for a cinematic look</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Background music and sound effects synced with visuals</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Adding text, motion graphics, and logo animations</li>
                                     </ul>
                                 </div>
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
 
+                    </div>
+
+                    <div className='  sm:mt-[10vh] mt-0  ' >                        
                         <div className=" border-gray-300 pb-4">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
@@ -403,7 +338,7 @@ function About() {
 
                             {/* Hidden Content */}
                             <div
-                                className={`transition-all duration-200 overflow-hidden ${open7 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
+                                className={`transition-all duration-200 overflow-hidden ${open7 ? "max-h-full mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
                                 <div className="text-gray-600 text-white leading-relaxed">
@@ -417,7 +352,103 @@ function About() {
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
+                        <div className=" border-gray-300 pb-4">
+                            <div
+                                className="flex items-center justify-between cursor-pointer"
+                                onClick={() => setOpen6(!open6)}
+                            >
+                                <h3 className="text-lg transition-all uppercase ease-in duration-200 font-semibold tracking-wider text-white">
+                                    Custom AI Solutions for E-Commerce
+                                </h3>
 
+                                {open6 ? (
+                                    <FaMinus className="w-5 h-5 text-white transition-transform duration-200" />
+                                ) : (
+                                    <FaPlus className="w-5 h-5 text-white transition-transform duration-200" />
+                                )}
+                            </div>
+
+                            {/* Hidden Content */}
+                            <div
+                                className={`transition-all duration-200 overflow-hidden ${open6 ? "max-h-full mt-4 opacity-100" : "max-h-0 opacity-0"
+                                    }`}
+                            >
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Product recommendation engines</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg '  >Inventory forecasting and stock optimization</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Review and feedback analytics</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Lead scoring and purchase prediction models</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr className="border-t-2 border-white my-10" />
+                        </div>
+
+                        <div className=" border-gray-300 pb-4">
+                            <div
+                                className="flex items-center justify-between cursor-pointer"
+                                onClick={() => setOpen5(!open5)}
+                            >
+                                <h3 className="text-lg transition-all ease-in duration-200 uppercase font-semibold tracking-wider text-white">
+                                    Natural Language Processing
+                                </h3>
+
+                                {open5 ? (
+                                    <FaMinus className="w-5 h-5 text-white transition-transform duration-200" />
+                                ) : (
+                                    <FaPlus className="w-5 h-5 text-white transition-transform duration-200" />
+                                )}
+                            </div>
+
+                            {/* Hidden Content */}
+                            <div
+                                className={`transition-all duration-200 overflow-hidden ${open5 ? "max-h-full mt-4 opacity-100" : "max-h-0 opacity-0"
+                                    }`}
+                            >
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Build AI chatbots for websites, apps, and WhatsApp</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg '  >Analyze sentiment from reviews, surveys, or social posts</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Implement text summarization, document search, and Q&A systems</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >NER (Named Entity Recognition) and multilingual understanding</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr className="border-t-2  border-white my-10" />
+                        </div>
+                        <div className=" border-gray-300 pb-4">
+                            <div
+                                className="flex items-center justify-between cursor-pointer"
+                                onClick={() => setOpen4(!open4)}
+                            >
+                                <h3 className="text-lg transition-all ease-in duration-200 font-semibold uppercase tracking-wider text-white">
+                                    AI Model Deployment & MLOps
+                                </h3>
+
+                                {open4 ? (
+                                    <FaMinus className="w-5 h-5 text-white transition-transform duration-200" />
+                                ) : (
+                                    <FaPlus className="w-5 h-5 text-white transition-transform duration-200" />
+                                )}
+                            </div>
+
+                            {/* Hidden Content */}
+                            <div
+                                className={`transition-all duration-200 overflow-hidden ${open4 ? "max-h-full mt-4 opacity-100" : "max-h-0 opacity-0"
+                                    }`}
+                            >
+                                <div className="text-gray-600 text-white leading-relaxed">
+                                    <ul className="list-disc pl-6">
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Deploy models using Flask, FastAPI, Docker, or AWS Lambda</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg '  >Set up CI/CD pipelines for machine learning (MLOps)</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Track experiments with DVC and MLflow</li>
+                                        <li className='ml-[2vw] mb-[1vw] text-lg ' >Ensure scalable, secure API-based AI delivery</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr className="border-t-2 border-white my-10" />
+                        </div>
                         <div className=" border-gray-300 pb-4">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
@@ -437,7 +468,7 @@ function About() {
 
                             {/* Hidden Content */}
                             <div
-                                className={`transition-all duration-200 overflow-hidden ${open8 ? "max-h-50 mt-4 opacity-100" : "max-h-0 opacity-0"
+                                className={`transition-all duration-200 overflow-hidden ${open8 ? "max-h-full mt-4 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
                                 <div className="text-gray-600 text-white leading-relaxed">
@@ -451,6 +482,7 @@ function About() {
                             </div>
                             <hr className="border-t-2 border-white my-10" />
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -462,12 +494,12 @@ function About() {
                         <p className='text-xl  text-white ' >
                             At Code2DBug, we offer flexible engagement models tailored to the needs of startups,
                             product teams, and emerging talent. Whether you're building an MVP, scaling a product,
-                            or running a learning-driven delivery sprint — we've got a model that fits.
+                            or running a learning-driven delivery sprint, we've got a model that fits.
                         </p>
 
                         {/* Do not remove or change existing classes. Only add behavior + a11y. */}
                         <button
-                            className='sm:h=[3vw] text-white sm:h-[4vw] h-[12vw]  w-[55vw] sm:w-[15vw] text-lg font-semibold border-[1px] '
+                            className=' text-white sm:h-[4vw] h-[14vw]  w-full sm:w-[15vw] text-lg font-semibold border-[1px] '
                             onClick={() => setOpen9(v => !v)}
                             aria-expanded={open}
                             aria-controls={panelId}
@@ -537,7 +569,7 @@ function About() {
                     <div className='space-y-[0.5vw]  '  >
                         <img className=' sm:w-[18vw]' src="./src/assets/deepak.png" alt="" />
                         <h2 className='font-semibold text-white ' >DEEPAK</h2>
-                        <span className='text-white' >Chief Technical Officer</span>
+                        <span className='text-white' >Chief Technology Officer</span>
                     </div>
                     <div className='space-y-[0.5vw]  '  >
                         <img className=' sm:w-[18vw]' src="./src/assets/tanisha.png" alt="" />
@@ -545,20 +577,26 @@ function About() {
                         <span className='text-white' >Chief Finance Officer</span>
                     </div>
                     <div className='space-y-[0.5vw]  '  >
-                        <img className=' sm:w-[18vw]' src="./src/assets/simran.png" alt="" />
-                        <h2 className='font-semibold text-white ' >SIMRAN</h2>
-                        <span className='text-white' >Marketing Coordinator</span>
-                    </div>
-                    <div className='space-y-[0.5vw]  '  >
                         <img className=' sm:w-[18vw]' src="./src/assets/rupesh.png" alt="" />
                         <h2 className='font-semibold text-white ' >RUPESH</h2>
-                        <span className='text-white' >FrontEnd Developer</span>
+                        <span className='text-white' >Fullstack Developer</span>
+                    </div>
+                    <div className='space-y-[0.5vw]  '  >
+                        <img className='sm:w-[18vw]' src="./src/assets/team09.png" alt="" />
+                        <h2 className='font-semibold uppercase text-white ' >Sagar </h2>
+                        <span className='text-white' >Shopify Developer</span>
                     </div>
                     <div className='space-y-[0.5vw]  '  >
                         <img className='sm:w-[18vw]' src="./src/assets/team01.png" alt="" />
                         <h2 className='font-semibold uppercase text-white ' >Ananya </h2>
                         <span className='text-white' >UI/UX Designer</span>
                     </div>
+                    <div className='space-y-[0.5vw]  '  >
+                        <img className=' sm:w-[18vw]' src="./src/assets/simran.png" alt="" />
+                        <h2 className='font-semibold text-white ' >SIMRAN</h2>
+                        <span className='text-white' >Marketing Coordinator</span>
+                    </div>
+
                     <div className='space-y-[0.5vw]  '  >
                         <img className='sm:w-[18vw]' src="./src/assets/team02.png" alt="" />
                         <h2 className='font-semibold text-white ' >Rohan</h2>
